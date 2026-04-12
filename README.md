@@ -1,2 +1,2 @@
 # StrukturyDanych1
-Struktury Danych Projekt 1 Kornel i Kacper 
+Struktury Danych Projekt 1 Kornel Okińczyc i Kacper Kobylarczyk
