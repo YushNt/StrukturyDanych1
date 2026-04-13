@@ -19,6 +19,7 @@ int main() {
         cout << "6 - Usun z pozycji" << endl;
         cout << "7 - Wyszukaj" << endl;
         cout << "8 - Wyswietl cala liste" << endl;
+        cout << "9 - Wyswietl element na pozycji" << endl;
         cout << "0 - Wyjscie" << endl;
 
         int wybor;
@@ -66,6 +67,16 @@ int main() {
             break;
         case 8:
             lista.wyswietl();
+            break;
+        case 9:
+            cout << "Podaj indeks elementu do wyswietlenia: ";
+            cin >> index;
+            if (index < lista.zwroc_rozmiar() && index >= 0) {
+                cout << "Element na indeksie " << index << ": " << lista[index] << endl;
+            }
+            else {
+                cout << "Indeks poza zakresem!" << endl;
+            }
             break;
         case 0:
             cout << "Koniec programu." << endl;
