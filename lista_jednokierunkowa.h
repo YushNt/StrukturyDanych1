@@ -173,8 +173,24 @@ public:
             if (aktualny->nastepny != nullptr) std::cout << ", ";
             aktualny = aktualny->nastepny;
         }
-
         cout << endl;
-        cout << "Rozmiar: " << rozmiar << endl;
+    }
+
+    T& operator[](int index) {
+        if (index < 0 || index >= rozmiar) {
+            std::cout << "Blad: Indeks poza zakresem! Zwrocono wartosc awaryjna -1." << std::endl;
+            static T wartosc_awaryjna = T(-1);
+            return wartosc_awaryjna;
+        }
+        
+        Wezel* aktualny = head;
+        for (int i = 0; i < index; i++) {
+            aktualny = aktualny->nastepny;
+        }
+        return aktualny->dane;
+    }
+
+    int zwroc_rozmiar() const {
+        return rozmiar;
     }
 };
