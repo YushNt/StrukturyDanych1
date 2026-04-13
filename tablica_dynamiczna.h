@@ -6,14 +6,14 @@ template <typename T>
 class DynamicArray {
 private:
     T* data;
-    size_t size;
-    size_t capacity;
+    int size;
+    int capacity;
 
     void reallocate() {
         capacity = (capacity == 0) ? 1 : capacity * 2;
         T* new_data = new T[capacity];
         
-        for (size_t i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             new_data[i] = data[i];
         }
         
@@ -22,7 +22,7 @@ private:
     }
 
 public:
-    DynamicArray(size_t n = 4) : size(0), capacity(n) {
+    DynamicArray(int n = 4) : size(0), capacity(n) {
         data = new T[capacity]; 
     }
 
@@ -38,17 +38,17 @@ public:
 
     void push_front(const T& value) {
         if (size == capacity) reallocate();
-        for (size_t i = size; i > 0; i--) {
+        for (int i = size; i > 0; i--) {
             data[i] = data[i - 1]; 
         }
         data[0] = value;
         size++;
     }
 
-    void insert(size_t index, const T& value) {
+    void insert(int index, const T& value) {
         if (index > size) return; 
         if (size == capacity) reallocate();
-        for (size_t i = size; i > index; i--) {
+        for (int i = size; i > index; i--) {
             data[i] = data[i - 1];
         }
         data[index] = value;
@@ -61,29 +61,29 @@ public:
 
     void pop_front() {
         if (size == 0) return;
-        for (size_t i = 0; i < size - 1; i++) {
+        for (int i = 0; i < size - 1; i++) {
             data[i] = data[i + 1];
         }
         size--;
     }
 
-    void remove(size_t index) {
+    void remove(int index) {
         if (index >= size) return;
-        for (size_t i = index; i < size - 1; i++) {
+        for (int i = index; i < size - 1; i++) {
             data[i] = data[i + 1];
         }
         size--;
     }
 
     int find(const T& value) const {
-        for (size_t i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (data[i] == value) return i; 
         }
         return -1;
     }
     
 
-    size_t getSize() const { return size; }
-    size_t getCapacity() const { return capacity; }
-    T& operator[](size_t index) { return data[index]; } 
+    int getSize() const { return size; }
+    int getCapacity() const { return capacity; }
+    T& operator[](int index) { return data[index]; } 
 };
