@@ -19,12 +19,12 @@ int main() {
         cout << "6 - Usun z pozycji" << endl;
         cout << "7 - Wyszukaj" << endl;
         cout << "8 - Wyswietl cala liste" << endl;
+        cout << "9 - Wyswietl element na pozycji" << endl;
         cout << "0 - Wyjscie" << endl;
 
         int wybor;
         cin >> wybor;
-        int wartosc;
-        size_t index;
+        int wartosc, index;
 
         switch (wybor) {
         case 1:
@@ -67,10 +67,20 @@ int main() {
             }
             break;
         case 8:
-            for (size_t i = 0; i < tab.getSize(); i++) {
+            for (int i = 0; i < tab.getSize(); i++) {
                 cout << tab[i] << " ";
             }
             cout << endl;
+            break;
+        case 9:
+            cout << "Podaj indeks do wyswietlenia: ";
+            cin >> index;
+            if (index < tab.getSize() && index >= 0) {
+                cout << "Element na indeksie " << index << ": " << tab[index] << endl;
+            }
+            else {
+                cout << "Indeks poza zakresem!" << endl;
+            }
             break;
         case 0:
             cout << "Koniec programu." << endl;
