@@ -50,7 +50,7 @@ public:
 
     void dodajNaPozycji(int index, const T& wartosc) {
         if (index < 0 || index > rozmiar) {
-            cout << "Nieprawidlowy indeks!" << endl;
+            std::cout << "Nieprawidlowy indeks!" << std::endl;
             return;
         }
         if (index == 0) {
@@ -76,7 +76,7 @@ public:
 
     void usunZPoczatku() {
         if (head == nullptr) {
-            cout << "Lista jest pusta!" << endl;
+            std::cout << "Lista jest pusta!" << std::endl;
             return;
         }
 
@@ -93,7 +93,7 @@ public:
 
     void usunZKonca() {
         if (head == nullptr) {
-            cout << "Lista jest pusta!" << endl;
+            std::cout << "Lista jest pusta!" << std::endl;
             return;
         }
 
@@ -117,7 +117,7 @@ public:
 
     void usunZPozycji(int index) {
         if (index < 0 || index >= rozmiar) {
-            cout << "Nieprawidlowy indeks!" << endl;
+            std::cout << "Nieprawidlowy indeks!" << std::endl;
             return;
         }
 
@@ -173,7 +173,7 @@ public:
             if (aktualny->nastepny != nullptr) std::cout << ", ";
             aktualny = aktualny->nastepny;
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
     T& operator[](int index) {
